@@ -1,0 +1,87 @@
+/* Container and box styles */
+.container {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.box {
+  padding: 10px;
+}
+
+/* Card styles */
+.card {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card-img {
+  width: 100%;
+  height: auto;
+}
+
+.card-body {
+  padding: 15px;
+}
+
+.card-title {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+/* Star rating styles */
+.fa-star {
+  color: #ffd700; /* Gold color */
+}
+
+.checked {
+  color: #ffd700;
+}
+
+/* Buy section styles */
+.buy {
+  margin-top: 15px;
+}
+
+.price {
+  font-size: 1.2em;
+  color: #333;
+}
+
+/* Quantity input styles */
+.quan {
+  width: 50px;
+  margin-right: 10px;
+}
+
+form {
+  display: flex;
+  align-items: center;
+}
+
+form label {
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+button[type="submit"] {
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+  background-color: #218838;
+}

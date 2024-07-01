@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>User Orders</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <style>
+        body {
+                  font-family: Arial, sans-serif;
+                  margin: 20px;
+                  background-color: #f9f9f9;
+              }
+              h1 {
+                  color: #333;
+              }
+              .empty-message {
+                  font-size: 18px;
+                  color: #777;
+              }
+              table {
+                  width: 100%;
+                  border-collapse: collapse;
+                  margin-top: 20px;
+                  background-color: #fff;
+                  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+              }
+              th, td {
+                  padding: 12px;
+                  text-align: left;
+                  border-bottom: 1px solid #ddd;
+              }
+              th {
+                  background-color: #f4f4f4;
+                  font-weight: bold;
+              }
+              tr:nth-child(even) {
+                  background-color: #f9f9f9;
+              }
+              .empty-message p {
+                  margin: 20px 0;
+                  font-size: 16px;
+                  color: #555;
+              }
+    </style>
+    <script>
+        $(document).ready(function() {
+            $('.delete-user').click(function() {
+                const userId = $(this).data('user-id');
+                if (confirm('Are you sure you want to delete this user?')) {
+                    $.ajax({
+                        url: '/admin/delete-user/' + userId,
+                        type: 'POST',
+                        success: function(result) {
+                            window.location.reload();
+                        },
+                        error: function(err) {
+                            alert('Error deleting user');
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+<h1>Your Orders</h1>
+<div th:if="${userOrders.empty}" class="empty-message">
+    <p>No orders found.</p>
+</div>
+<div th:if="${not userOrders.empty}">
+    <table>
+        <thead>
+        <tr>
+            <th>Order ID</th>
+            <th>Address</th>
+            <th>Payment ID</th>
+            <th>Total</th>
+            <th>Date</th>
+            <th>Status</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="order : ${userOrders}">
+            <td th:text="${order.id}"></td>
+            <td>
+                <div th:text="${order.address.name}"></div>
+                <div th:text="${order.address.address}"></div>
+                <div th:text="${order.address.city}"></div>
+                <div th:text="${order.address.state}"></div>
+                <div th:text="${order.address.zip}"></div>
+            </td>
+            <td th:text="${order.paymentId}"></td>
+            <td th:text="${order.total}"></td>
+            <td th:text="${#dates.format(order.deliveryDate, 'yyyy-MM-dd')}"></td>
+            <td th:text="${order.deliveryStatus}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

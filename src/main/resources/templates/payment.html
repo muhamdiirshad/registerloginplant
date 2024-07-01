@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment</title>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+</head>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+}
+
+header#title {
+    background-color: #113f67;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.container {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+h3 {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.btn-primary {
+    background-color: #113f67;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #007bff;
+}
+
+form {
+    margin-top: 20px;
+}
+
+</style>
+<body>
+<header id="title">
+    <h1>Payment</h1>
+</header>
+<div class="container">
+    <h3>Total: ₹<span th:text="${total}"></span></h3>
+    <form action="/checkout/complete" method="post">
+        <input type="hidden" name="name" th:value="${name}"/>
+        <input type="hidden" name="address" th:value="${address}"/>
+        <input type="hidden" name="city" th:value="${city}"/>
+        <input type="hidden" name="state" th:value="${state}"/>
+        <input type="hidden" name="zip" th:value="${zip}"/>
+        <input type="hidden" id="razorpay_payment_id" name="razorpay_payment_id"/>
+
+        <button type="button" id="rzp-button1" class="btn btn-primary">Pay with Razorpay</button>
+    </form>
+</div>
+<script th:inline="javascript">
+    document.getElementById('rzp-button1').onclick = function (e) {
+        var totalAmount = /*[[${total}]]*/;
+
+        var options = {
+            "key": "rzp_test_ELomGfybc6cv1M", // Replace with your actual Razorpay API key
+            "amount": totalAmount * 100, // Convert to paise
+            "currency": "INR",
+            "name": "GG",
+            "description": "Test Transaction",
+            "handler": function (response) {
+                document.getElementById('razorpay_payment_id').value = response.razorpay_payment_id;
+                document.forms[0].submit();
+            },
+            "prefill": {
+                "name": "irshad",
+                "email": "irshad@gmail.com",
+                "contact": "6238465247"
+            },
+            "theme": {
+                "color": "#3399cc"
+            }
+        };
+        var rzp1 = new Razorpay(options);
+        rzp1.open();
+        e.preventDefault();
+    }
+</script>
+</body>
+</html>

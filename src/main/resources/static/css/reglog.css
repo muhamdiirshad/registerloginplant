@@ -1,0 +1,131 @@
+/* reglog.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+*{
+  box-sizing: border-box;
+}
+
+:root{
+    --first-color: #e7eaf6;
+    --second-color: #a2a8d3;
+    --third-color: #38598b;
+    --fourth-color: #113f67;
+    --input-bgcolor: #f2f2f2;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color:#e7eaf6;
+  margin: 0;
+}
+
+.container {
+  max-width: 400px;
+  margin: 50px auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px  #a2a8d3;
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+.centered {
+  text-align: center;
+}
+
+form {
+  margin-bottom: 20px;
+  opacity: 0;
+  animation: slideIn 0.5s ease forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+      opacity: 0;
+      transform: translateY(20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+      opacity: 0;
+      transform: translateY(50px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="password"] {
+  width: calc(100% - 20px);
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="number"]:focus,
+input[type="password"]:focus {
+  border-color: #113f67;
+}
+
+button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #113f67;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color:  #38598b;
+}
+
+.login-signup {
+  text-align: center;
+  opacity: 0;
+  animation: fadeIn 1s ease forwards 0.5s;
+}
+
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateY(20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+.text {
+  font-size: 14px;
+  color:  blue;
+}
+
+.signup-link,
+.login-link {
+  color:  #38598b;
+  text-decoration: none;
+  margin-left: 5px;
+}
+
+.signup-link:hover,
+.login-link:hover {
+  text-decoration: underline;
+}

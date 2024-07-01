@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <title>GardenGlow</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.css}">
+    <link rel="icon" type="image/x-icon" th:href="@{/images/logos-removebg-preview.png}">
+    <link rel="stylesheet" th:href="@{/css/home.css}">
+    <link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css}">
+    <link th:href="@{https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css}" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body>
+<header>
+
+    <div id="announcement-bar" class="shopify-section"><div class="announcement-bar color-accent-1 gradient" aria-label="Announcement"><p class="announcement-bar message h5">
+        <marquee class="top_announce_bar" scrollamount="2" attribute_name="attribute_value" more="" attributes="">
+            Free shipping on orders above ₹700 | Free shipping on orders above ₹700 | Free shipping on orders above ₹700
+
+        </marquee>
+    </p>
+    </div>
+    </div>
+
+    <nav class="navbar sticky navbar-expand-lg bg-body-tertiary">
+        <div class="container-xs container-fluid">
+            <div class="logo">
+                <img class="gg" src="/images/GArden glow.png" alt="">
+                <h2 class="logo-name">GardenGlow</h2>
+            </div>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+<div class="navdiv">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#category">Category</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" th:href="@{/about}">About us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#services">Our Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" th:href="@{/user/orders}">Orders</a>
+                    </li>
+                </ul>
+            </div>
+
+
+
+                <!-- <form class="search-container" action="">
+                     <input id="search-box" type="text" class="search-box" name="q" />
+
+                     <label for="search-box"><span class="glyphicon glyphicon-search search-icon">
+                 <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"></path>
+                         </svg></span></label>
+                     <input type="submit" id="search-submit" />
+                </form>-->
+            </div>
+        </div>
+
+        <a th:href="@{/cart/view}">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-bag me-auto" viewBox="0 0 16 16">
+                <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1m3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z"/>
+            </svg>
+        </a>
+
+    </nav>
+
+    <section class="home" id="home">
+    <div class="container">
+        <img src="/images/plant.jpg" alt="Snow" style="width:100%; height:500px;">
+
+        <div class="centered"><h1>GardenGlow</h1>
+            <h4>Browse,select,and purchase your favorite plants from the comfort of your home.</h4>
+            <a class="shop" href="#category">Shop Now</a>
+        </div>
+    </div>
+
+    </section>
+
+    <section class="categoery" id="category">
+    <h3 class="headding">Shop Our Green Delights <span>category</span></h3>
+
+    <div class="projects__container container grid">
+
+        <article class="projects__card">
+            <div class="projects__image">
+                <img src="/images/succulentsss.jpg" alt="image" class="projects__img">
+
+
+            </div>
+
+            <div class="projects__content">
+                <h3 class="projects__title">Succulents</h3>
+                <a th:href="@{/succulents}" class="icon-link icon-link-hover" style="--bs-link-hover-color-rgb: 25, 135, 84;" >
+                    View More →
+                </a>
+
+            </div>
+
+
+        </article>
+
+        <article class="projects__card">
+            <div class="projects__image">
+                <img src="/images/cactusss.jpg" alt="image" class="projects__img">
+
+
+            </div>
+
+            <div class="projects__content">
+                <h3 class="projects__title">Cactus</h3>
+
+                <a class="icon-link icon-link-hover" th:href="@{/cactus}" style="--bs-link-hover-color-rgb: 25, 135, 84;" >
+                    View More →
+
+                </a>
+            </div>
+        </article>
+
+        <article class="projects__card">
+            <div class="projects__image">
+                <img src="/images/miniaturesss.jpg" alt="image" class="projects__img">
+
+
+            </div>
+
+            <div class="projects__content">
+                <h3 class="projects__title">Miniatures</h3>
+
+                <a class="icon-link icon-link-hover" th:href="@{/miniatures}" style="--bs-link-hover-color-rgb: 25, 135, 84;">
+                    View More →
+
+                </a>
+            </div>
+        </article>
+
+        <article class="projects__card">
+            <div class="projects__image">
+                <img src="/images/potsss.jpg" alt="image" class="projects__img">
+
+
+                </a>
+            </div>
+
+            <div class="projects__content">
+                <h3 class="projects__title">Pots & Plants</h3>
+                <a th:href="@{/pots}" class="icon-link icon-link-hover" style="--bs-link-hover-color-rgb: 25, 135, 84;">
+                    View More →
+
+                </a>
+            </div>
+
+        </article>
+
+        <article class="projects__card">
+            <div class="projects__image">
+                <img src="/images/seedsss.jpg" alt="image" class="projects__img">
+
+            </div>
+
+            <div class="projects__content">
+                <h3 class="projects__title">Seeds</h3>
+
+                <a th:href="@{/seeds}" class="icon-link icon-link-hover" style="--bs-link-hover-color-rgb: 25, 135, 84;">
+                    View More →
+
+                </a>
+            </div>
+        </article>
+
+        <article class="projects__card">
+            <div class="projects__image">
+                <img src="/images/toolss.jpg" alt="image" class="projects__img">
+            </div>
+
+            <div class="projects__content">
+                <h3 class="projects__title">Garden Tools</h3>
+
+                <a th:href="@{/tools}" class="icon-link icon-link-hover center" style="--bs-link-hover-color-rgb: 25, 135, 84;">
+                    View More →
+
+                </a>
+            </div>
+        </article>
+
+    </div>
+    </section>
+
+
+<section class="services" id="services">
+    <h3 class="headding">Nursery & Landscaping Services</h3>
+    <div class="row">
+        <div class="column">
+            <img src="/images/banner 3.jpg" alt="" style="width:100%">
+            <div class="text-block">
+                <h3>Our Nursery: Nurture Your Space with Our Beautiful Plants</h3><p>Our plant collection encompasses an exciting range of greenery, each nurtured to perfection. Whether you're seeking flowering plants to add a splash of color to your garden, indoor plants to purify your air, or hardy succulents to create a low-maintenance green space, we've got you covered. Our passion for plants is reflected in the diversity and health of our stock.</p>
+
+            </div>
+        </div>
+
+
+        <div class="column">
+            <img src="images/plant2.jpg" alt="" style="width:100%">
+            <div class="text-block">
+                <h3>Landscaping Services: Landscaping Masterpieces Crafted With Passion</h3><p>Our team comprises highly skilled and certified professionals, each bringing unique expertise and creativity to our projects. We see every project as an opportunity to create something unique, something that complements the natural environment and provides our clients with an outdoor space they can enjoy for years to come.
+            </p>
+
+            </div>
+        </div>
+    </div>
+    </section>
+
+
+
+   <!-- <section class="contact-uss" id="contact-uss">
+
+<div class="container">
+    <form action="action_page.php">
+        <h1 class="contact">Contact us</h1>
+
+        <label for="fname"></label>
+        <input type="text" class="contact-us" id="fname" name="fullname" placeholder="Full name">
+        <br>
+
+        <label for="phone"></label>
+        <input type="number" id="phone" name="lastname" placeholder="Phone no">
+
+        <br>
+        <label for="email"></label>
+        <input type="email" id="email" name="email" placeholder="Email">
+
+        <br>
+        <label for="subject"></label>
+        <textarea id="subject" name="subject" placeholder="Subjct:Write something" style="height:150px "></textarea>
+        <br>
+        <input type="submitt" value="Submitt">
+
+    </form>-->
+
+
+
+</header>
+<br><br>
+<footer class="footer">
+    <div class="footer__addr">
+        <h1 class="footer__logo">GardenGlow</h1>
+
+        <h2>Contact</h2>
+
+        <address>
+            abcdef
+            <br>
+
+            <a class="footer__btn" href="irshadibrahim524@gmail.com">Email Us</a>
+        </address>
+    </div>
+
+    <ul class="footer__nav">
+        <li class="nav__item">
+            <h2 class="nav__title">Main Menu</h2>
+
+            <ul class="nav__ul">
+                <li>
+                    <a href="#">Home</a>
+                </li>
+
+                <li>
+                    <a href="#">Our Services</a>
+                </li>
+
+                <li>
+                    <a href="#">Contact us</a>
+                </li>
+                <li>
+                    <a href="#">Combo Offers</a>
+                </li>
+
+            </ul>
+        </li>
+
+
+
+        <li class="nav__item">
+            <h2 class="nav__title">Policies</h2>
+
+            <ul class="nav__ul">
+                <li>
+                    <a href="#">Privacy Policy</a>
+                </li>
+
+                <li>
+                    <a href="#">Terms of Service</a>
+                </li>
+
+                <li>
+                    <a href="#">Shipping Policy</a>
+                </li>
+                <li>
+                    <a href="#">Refund Policy</a>
+                </li><li>
+                <a href="#">Sitemap</a>
+            </li>
+            </ul>
+        </li>
+    </ul>
+
+    <div class="legal">
+        <p>&copy; 2024 GardenGlow Nursery.
+
+            Powered by ...</p>
+
+        <div class="legal__links">
+            <span>Made with <span class="heart">♥</span> remotely from Anywhere</span>
+        </div>
+    </div>
+</footer>
+
+
+
+
+
+<script th:src="@{https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js}" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script th:src="@{/js/bootstrap.js}"></script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" th:href="@{/css/contactus.css}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="icon" type="image/x-icon" th:href="@{/images/logos-removebg-preview.png}">
+</head>
+<body>
+
+<div class="container">
+    <form action="action_page.php">
+        <h1>Contact us</h1>
+
+        <label for="fname"></label>
+        <input type="text" id="fname" name="fullname" placeholder="Full name">
+        <br>
+
+        <label for="phone"></label>
+        <input type="number" id="phone" name="lastname" placeholder="Phone no">
+
+        <br>
+        <label for="email"></label>
+        <input type="email" id="email" name="email" placeholder="Email">
+
+        <br>
+        <label for="subject"></label>
+        <textarea id="subject" name="subject" placeholder="Subjct:Write something" style="height:150px "></textarea>
+        <br>
+        <input type="submit" value="Submit">
+
+    </form>
+</div>
+</body>
+</html>
